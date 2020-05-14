@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(){
+    super()
+
+    this.state = {
+      theArr: [12,64, "I like cake"],
+      filterStr: ''
+    }
+  }
+
+  filtered(elem) {
+    this.setState({
+      filterStr: elem
+    })
+  }
+  
+  render(){
+    const splitz = this.state.theArr.filter(function(elem, index){
+      })
+    return (
+      <div className="App">
+        <input onChange={e => this.filtered(e.target.value)}/>
+        <p>{splitz}</p>
+      </div>
+    );
+  }
 }
 
 export default App;
